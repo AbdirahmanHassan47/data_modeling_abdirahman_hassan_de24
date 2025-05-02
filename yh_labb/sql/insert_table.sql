@@ -4,7 +4,7 @@ SET search_path TO yrkesco;
 -- Lärare + Konsult
 INSERT INTO konsult (konsult_id) VALUES (1), (2), (3), (4), (5);
 INSERT INTO lärare (lärare_id, förnamn, efternamn, email, telefonnumer) VALUES
-(1, 'Margareta', 'Nordin', 'fredrikssonangelica@googlemail.com', '08-759 38 24'),
+(1, 'Margareta', 'Nordin', 'fredrik2@googlemail.com', '08-759 38 24'),
 (2, 'Georg', 'Axelsson', 'lennartnilsson@yahoo.de', '08-78 15 65'),
 (3, 'Dagny', 'Sjöström', 'qpetersson@telia.com', '0016-09 75 35'),
 (4, 'Elin', 'Bergström', 'elin.bergstrom@edu.se', '08-111 22 33'),
@@ -12,18 +12,16 @@ INSERT INTO lärare (lärare_id, förnamn, efternamn, email, telefonnumer) VALUE
 
 -- Kurser
 INSERT INTO kurs (kurs_id, kursnamn, kurskod, poäng, beskrivning) VALUES
-(1, 'Kurs 1', 'K001', '100', 'En beskrivning av kurs 1'),
-(2, 'Kurs 2', 'K002', '100', 'En beskrivning av kurs 2'),
-(3, 'Kurs 3', 'K003', '100', 'En beskrivning av kurs 3'),
-(4, 'Databasteknik', 'K004', '100', 'Lär dig om SQL och databaser'),
+(1, 'data modelering', 'K001', '100', 'lär dig hur man modelerar data'),
+(2, 'SQL', 'K002', '100', 'lär dig om SQL och olika queries'),
+(3, 'Python', 'K003', '100', 'Intro till python och dens funktioner'),
+(4, 'Databasteknik', 'K004', '100', 'Lär dig om teknik och databaser'),
 (5, 'Projektledning', 'K005', '50', 'Introduktion till att leda projekt');
 
 -- Skolor
 INSERT INTO skola (skol_id, skol_namn, adress) VALUES
-(1, 'Skola 1', 'Idrottstorget 871, 55871 Helsingborg'),
-(2, 'Skola 2', 'Trädgårdsgatan 6, 49342 Malmö'),
-(3, 'Skola 3', 'Universitetsgatan 10, Uppsala'),
-(4, 'Skola 4', 'Industrivägen 44, Linköping');
+(1, 'Stokhols tekniska institut', 'Idrottstorget 871, 55871 Helsingborg'),
+(2, 'Södertöns högskola', 'Trädgårdsgatan 6, 49342 Malmö');
 
 -- Utbildningsledare
 INSERT INTO utbildningsledare (utbildningsledare_id, förnamn, efternamn, email) VALUES
@@ -34,11 +32,11 @@ INSERT INTO utbildningsledare (utbildningsledare_id, förnamn, efternamn, email)
 -- Företag
 INSERT INTO konsult (konsult_id) VALUES (6), (7);
 INSERT INTO företag (konsult_id, namn, organisationsnummer, adress, skatt, timlön) VALUES 
-(1, 'TechConsult AB', '556677-8899', 'Storgatan 1, Göteborg', 'Ja', '800'),
-(2, 'DataProffs AB', '112233-4455', 'Drottninggatan 99, Malmö', 'Ja', '750'),
-(3, 'Utbildning & Konsult', '998877-6655', 'Kungsgatan 23, Stockholm', 'Ja', '900'),
-(6, 'Framtidsteknik AB', '556112-3344', 'Södra vägen 5, Göteborg', 'Ja', '820'),
-(7, 'ITKonsult Syd AB', '556998-1122', 'Östra Hamngatan 7, Malmö', 'Nej', '700');
+(1, 'TechConsult AB', '556677-8899', 'Storgatan 1, Göteborg', 'Ja', '800kr'),
+(2, 'DataProffs AB', '112233-4455', 'Drottninggatan 99, Malmö', 'Ja', '750kr'),
+(3, 'Utbildning & Konsult', '998877-6655', 'Kungsgatan 23, Stockholm', 'Ja', '900kr'),
+(6, 'Framtidsteknik AB', '556112-3344', 'Södra vägen 5, Göteborg', 'Ja', '820kr'),
+(7, 'ITKonsult Syd AB', '556998-1122', 'Östra Hamngatan 7, Malmö', 'Nej', '700kr');
 
 
 -- Program
@@ -57,10 +55,10 @@ INSERT INTO programkurs (program_kurs_id, kurs_id, program_id, startdatum, slutd
 
 -- Klasser
 INSERT INTO klass (klass_id, klassnamn, program_id, utbildningsledare_id, skol_id) VALUES
-(1, 'System22', 1, 1, 1),
-(2, 'Analys23', 2, 1, 2),
-(3, 'Ledarskap24', 3, 2, 3),
-(4, 'System23', 1, 3, 4);
+(1, 'UX24', 1, 1, 1),
+(2, 'DE24', 2, 1, 2),
+(3, 'SU24', 3, 2, 2),
+(4, 'FD24', 1, 3, 1);
 
 -- Kurslärare
 INSERT INTO kurslärare (lärare_id, kurs_id) VALUES
