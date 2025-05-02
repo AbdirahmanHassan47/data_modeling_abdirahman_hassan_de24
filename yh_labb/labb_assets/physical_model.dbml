@@ -1,0 +1,93 @@
+
+Table lerare {
+  lerare_id INTERGER [primary key, not null,ref: < konsult.konsult_id]
+  fornamn VARCHAR(50) [not null]
+  efternamn VARCHAR(50) [not null]
+  email VARCHAR(255) [not null, unique]
+  telefonnumer VARCHAR(20) [unique]
+}
+
+
+
+Table kurs {
+  kurs_id INTERGER [primary key, not null,ref: < kurslerare.kurs_id]
+  kursnamn VARCHAR(50) [not null]
+  kurskod VARCHAR(10) [not null]
+  poeng VARCHAR(10) [not null]
+  beskrivning VARCHAR(255)
+}
+
+
+Table kurslerare {
+  lerare_id INTERGER [not null,ref: < lerare.lerare_id]
+  kurs_id INTERGER [not null]
+}
+
+
+Table konsult {
+  konsult_id INTERGER [primary key,not null]
+  foretags_id INTERGER [not null,ref: > foretag.konsult_id]
+}
+
+Table programkurs {
+  program_kurs_id INTERGER [primary key]
+  kurs_id INTERGER [not null,ref: > kurs.kurs_id]
+  program_id INTERGER [not null]
+  startdatum DATE
+  slutdatum DATE
+}
+
+Table program {
+  program_id INTERGER [primary key, not null,ref: < programkurs.program_id]
+  program_namn VARCHAR (50) [not null]
+  beskrivning VARCHAR(255)
+}
+
+Table klass {
+  klass_id INTERGER [primary key, not null,ref: < student.student_id]
+  klassnamn VARCHAR [not null]
+  program_id INTERGER  [not null,ref: > program.program_id]
+  utbildningsledare_id INTERGER [not null]
+  skol_id INTERGER [not null]
+}
+
+
+Table utbildningsledare {
+  utbildningsledare_id INTERGER [primary key, not null,ref: < klass.utbildningsledare_id]
+  fornamn VARCHAR(50) [not null]
+  efternamn VARCHAR(50) [not null]
+  email VARCHAR(255) [not null,unique]
+}
+
+
+Table skola {
+  skol_id INTERGER [primary key, not null,ref: < klass.skol_id]
+  skol_namn VARCHAR (50) [not null]
+  adress VARCHAR (50) [not null]
+}
+
+
+
+Table foretag {
+  konsult_id INTERGER 
+  namn  VARCHAR(50) [not null]
+  organisationsnummer VARCHAR(50) [not null]
+  adress VARCHAR(255) [not null]
+  skatt VARCHAR (50) [ not null]
+  timlon VARCHAR (50) [not null]
+}
+
+Table student {
+  student_id INTERGER [primary key, not null,ref: < student_info.student_id]
+  klass_id INTERGER [not null]
+  fornamn VARCHAR(50) [not null]
+  efternamn VARCHAR (50) [not null]
+}
+
+
+Table student_info {
+  student_id INTERGER [not null]
+  personnumer INTERGER [not null, unique]
+  adress VARCHAR(50) [not null]
+  telefonnumer VARCHAR (20) [not null]
+}
