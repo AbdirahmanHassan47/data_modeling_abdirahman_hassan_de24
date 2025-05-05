@@ -1,11 +1,10 @@
--- 🧹 Ta bort schema och all data om det redan finns
+
 DROP SCHEMA IF EXISTS yrkesco CASCADE;
 
--- 🏗️ Skapa nytt schema
 CREATE SCHEMA yrkesco;
 SET search_path TO yrkesco;
 
--- 🧱 Skapa tabeller
+
 CREATE TABLE företag (
     företags_id INTEGER PRIMARY KEY,
     namn VARCHAR(50) NOT NULL,
